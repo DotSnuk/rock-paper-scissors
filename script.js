@@ -14,4 +14,17 @@ function getComputerChoice(){
     }
     console.log(computerChoice);
 }
+
+function playRound(playerSelection, computerSelection){
+    playerSelection = playerSelection.toLowerCase();
+    if (playerSelection === computerSelection){
+        return ("Draw! Both picked" + playerSelection);
+    } else if (playerSelection === 'rock'){
+        if (computerSelection === 'paper'){
+            return "You lose! Paper beats rock";
+        } else {
+            return "You win! Rock beats scissors!"
+        }
+    }
+}
 getComputerChoice();
