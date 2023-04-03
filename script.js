@@ -12,33 +12,32 @@ function getComputerChoice(){
             computerChoice = 'scissors';
             break;
     }
-    console.log(computerChoice);
     return computerChoice;
 }
 
 function playRound(playerSelection, computerSelection){
-    // Made fuctions for keeping score and return results.
+    // Made functions for keeping score and return results.
     // 
     playerSelection = playerSelection.toLowerCase();
     if (playerSelection === computerSelection){
-        return ("Draw! Both picked " + playerSelection);
+        keepScore('draw', playerSelection, computerSelection);
     } else if (playerSelection === 'rock'){
         if (computerSelection === 'paper'){
-            return "You lose! Paper beats rock";
+            keepScore('computerWins', playerSelection, computerSelection);
         } else {
-            return "You win! Rock beats scissors"
+            keepScore('userWins', playerSelection, computerSelection);
         }
     } else if (playerSelection === 'paper'){
         if (computerSelection === 'scissors'){
-            return "You lose! Scissors beats paper";
+            keepScore('computerWins', playerSelection, computerSelection);
         } else {
-            return "You win! Paper beats rock"
+            keepScore('userWins', playerSelection, computerSelection);
         }
     } else if (playerSelection === 'scissors'){
         if (computerSelection === 'rock'){
-            return "You lose! Rock beats scissors";
+            keepScore('computerWins', playerSelection, computerSelection);
         } else {
-            return "You win! Scissors beats paper";
+            keepScore('userWins', playerSelection, computerSelection);
         }
     }
 }
@@ -62,23 +61,40 @@ function game(){
 function confirmInput(userInput){
     userInput = userInput.toLowerCase();
     if ((userInput != 'rock') && (userInput != 'paper') && (userInput != 'scissors')){
-        console.log(userInput);
-        console.log('false');
         return false;
     } else {
-        console.log('true');
         return true;
     }
 }
 
-function keepScore(){
+function keepScore(str, user, computer){
+    switch(str){
+        case 'draw':
+            draws++;
+            console.log('Draw! You both picked ' + user + '.');
+            logResults();
+            break;
+        case 'userWins':
+            userWins++;
+            console.log('You win! ' + user + ' beats ' + computer + '.');
+            logResults();
+            break;
+        case 'computerWins':
+            computerWins++;
+            console.log('You lose! ' + computer + ' beats ' + user + '.');
+            logResults();
+            break;
+    }
 
 }
 
 function logResults(){
-
+    console.log('User wins: ' + userWins + '\n' + 
+    'Computer Wins: ' + computerWins + '\n' +
+    'Draws: ' + draws);
 }
 
+let userWins = 0, computerWins = 0, draws = 0;
 game();
 
 // const playerSelection = 'rock';
