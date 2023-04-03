@@ -17,6 +17,8 @@ function getComputerChoice(){
 }
 
 function playRound(playerSelection, computerSelection){
+    // Made fuctions for keeping score and return results.
+    // 
     playerSelection = playerSelection.toLowerCase();
     if (playerSelection === computerSelection){
         return ("Draw! Both picked " + playerSelection);
@@ -41,6 +43,44 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-const playerSelection = 'rock';
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function game(){
+    /* 
+    Play five rounds, Ask for user input, Display score
+    */
+    let userInput;
+    let count = 0;
+    for (let i = 0;i < 5;i++){
+        userInput = prompt("Pick between rock, paper, or scissors");
+        while (confirmInput(userInput) != true){
+            userInput = prompt("Pick between rock, paper, or scissors");
+        }
+        playRound(userInput, getComputerChoice());
+    }
+
+}
+
+function confirmInput(userInput){
+    userInput = userInput.toLowerCase();
+    if ((userInput != 'rock') && (userInput != 'paper') && (userInput != 'scissors')){
+        console.log(userInput);
+        console.log('false');
+        return false;
+    } else {
+        console.log('true');
+        return true;
+    }
+}
+
+function keepScore(){
+
+}
+
+function logResults(){
+
+}
+
+game();
+
+// const playerSelection = 'rock';
+// const computerSelection = getComputerChoice();
+// console.log(playRound(playerSelection, computerSelection));
