@@ -1,3 +1,8 @@
+const buttons = document.querySelectorAll('button');
+buttons.forEach(b => b.addEventListener('click', functionToBeNamed));
+let userWins = 0, computerWins = 0, draws = 0;
+game();
+
 function getComputerChoice(){
     const rndNumber = Math.ceil(Math.random() * 3);
     let computerChoice;
@@ -42,21 +47,21 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-function game(){
-    /* 
-    Play five rounds, Ask for user input, Display score
-    */
-    let userInput;
-    let count = 0;
-    for (let i = 0;i < 5;i++){
-        userInput = prompt("Pick between rock, paper, or scissors");
-        while (confirmInput(userInput) != true){
-            userInput = prompt("Pick between rock, paper, or scissors");
-        }
-        playRound(userInput, getComputerChoice());
-    }
+// function game(){
+//     /* 
+//     Play five rounds, Ask for user input, Display score
+//     */
+//     let userInput;
+//     let count = 0;
+//     for (let i = 0;i < 5;i++){
+//         userInput = prompt("Pick between rock, paper, or scissors");
+//         while (confirmInput(userInput) != true){
+//             userInput = prompt("Pick between rock, paper, or scissors");
+//         }
+//         playRound(userInput, getComputerChoice());
+//     }
 
-}
+// }
 
 function confirmInput(userInput){
     userInput = userInput.toLowerCase();
@@ -93,9 +98,6 @@ function logResults(){
     'Computer Wins: ' + computerWins + '\n' +
     'Draws: ' + draws);
 }
-
-let userWins = 0, computerWins = 0, draws = 0;
-game();
 
 // const playerSelection = 'rock';
 // const computerSelection = getComputerChoice();
