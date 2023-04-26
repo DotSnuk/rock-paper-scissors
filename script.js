@@ -1,7 +1,9 @@
 const buttons = document.querySelectorAll('button');
-buttons.forEach(b => b.addEventListener('click', functionToBeNamed));
+buttons.forEach(b => b.addEventListener('click', event => {
+    playRound(event.target.id, getComputerChoice());
+})); //get id
 let userWins = 0, computerWins = 0, draws = 0;
-game();
+//game();
 
 function getComputerChoice(){
     const rndNumber = Math.ceil(Math.random() * 3);
