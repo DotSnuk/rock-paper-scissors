@@ -97,11 +97,6 @@ function keepScore(str, user, computer){
             document.getElementById('computer').innerText = computerWins;
             break;
     }
-
-    // 
-    // keep working on trying to get html to update with the current score
-    //
-
 }
 
 function updateScore(){
