@@ -6,15 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock paper scissors</title>
     <script defer type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
-    <div>
-        <div id="human"></div>
-        <div id="computer"></div>
-        <div id="draw"></div>
+    <div class="button-container">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
+    <div class="score-container">
+        <div class="player">
+            <div>Human: </div><div class="score" id="human">0</div>
+        </div>
+        <div class="player">
+            <div>Computer: </div><div class="score" id="computer">0</div>
+        </div>
+        <div class="player">
+            <div>Draw: </div><div class="score" id="draw">0</div>
+        </div>
+        <div id="recent-match"></div>
     </div>
 
     

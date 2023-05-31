@@ -1,7 +1,7 @@
 const buttons = document.querySelectorAll('button');
 buttons.forEach(b => b.addEventListener('click', event => {
     playRound(event.target.id, getComputerChoice());
-})); //get id
+}));
 let userWins = 0, computerWins = 0, draws = 0;
 //game();
 
@@ -24,7 +24,6 @@ function getComputerChoice(){
 
 function playRound(playerSelection, computerSelection){
     // Made functions for keeping score and return results.
-    // 
     playerSelection = playerSelection.toLowerCase();
     if (playerSelection === computerSelection){
         keepScore('draw', playerSelection, computerSelection);
@@ -79,19 +78,37 @@ function keepScore(str, user, computer){
         case 'draw':
             draws++;
             console.log('Draw! You both picked ' + user + '.');
+            document.getElementById('recent-match').innerText = 'Draw! You both picked ' + user + '.';
             logResults();
+            document.getElementById('draw').innerText = draws;
             break;
         case 'userWins':
             userWins++;
             console.log('You win! ' + user + ' beats ' + computer + '.');
+            document.getElementById('recent-match').innerText = 'You win! ' + user + ' beats ' + computer + '.';
             logResults();
+            document.getElementById('human').innerText = userWins;
             break;
         case 'computerWins':
             computerWins++;
             console.log('You lose! ' + computer + ' beats ' + user + '.');
+            document.getElementById('recent-match').innerText = 'You lose! ' + computer + ' beats ' + user + '.';
             logResults();
+            document.getElementById('computer').innerText = computerWins;
             break;
     }
+
+    // 
+    // keep working on trying to get html to update with the current score
+    //
+
+}
+
+function updateScore(){
+    const scoreString = document.querySelectorAll('.score');
+    // scoreString.forEach(score => {
+        
+    //  }
 
 }
 
